@@ -126,8 +126,8 @@ var (
 				margs = append(margs, username, option.StringValue())
 				//建议在此进行逻辑处理
 				margss := "whitelist add " + option.StringValue()
-				Reswsdata(username, "cmd", margss)
-				msgformat += "> 用户: %s\n> 游戏昵称: %s\n"
+				dats := Reswsdata(username, "cmd", margss)
+				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 操作状态：" + dats
 			}
 
 			err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
@@ -161,8 +161,8 @@ var (
 				margs = append(margs, username, option.StringValue())
 				//建议在此进行逻辑处理
 				margss := "whitelist remove " + option.StringValue()
-				Reswsdata(username, "cmd", margss)
-				msgformat += "> 用户: %s\n> 游戏昵称: %s\n"
+				dats := Reswsdata(username, "cmd", margss)
+				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 操作状态：" + dats
 			}
 
 			err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{

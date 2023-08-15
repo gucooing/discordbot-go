@@ -19,9 +19,6 @@ func Reswsdata(users, cause, types string) string {
 	}
 	// 发送消息
 	fmt.Printf("向 Discord bot 发送数据: %v\n", rsqdata)
-	err := SendMessage(rsqdata)
-	if err != nil {
-		return "err"
-	}
-	return ""
+	stda := SendMessage(rsqdata)
+	return stda
 }

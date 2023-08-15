@@ -53,12 +53,15 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func SendMessage(message interface{}) error {
-	//err := conn.WriteMessage(websocket.TextMessage, message)
+func SendMessage(message interface{}) string {
+	// 检查是否已经存在连接
+	if conn == nil {
+		return "ws客户端未连接"
+	}
 	err := conn.WriteJSON(message)
 	if err != nil {
 		fmt.Printf("发送消息时出错:", err)
-		return err
+		return "发送命令时出错"
 	}
-	return nil
+	return "发送成功！"
 }
