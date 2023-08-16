@@ -128,7 +128,7 @@ var (
 				margss := "whitelist add " + option.StringValue()
 				//dats := Reswsdata(username, "cmd", margss)
 				rsadata := Protoxor(username, "cmd", margss)
-				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 加密结果：" + rsadata
+				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 加密结果：" + string(rsadata)
 			}
 
 			err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{
@@ -164,7 +164,7 @@ var (
 				margss := "whitelist remove " + option.StringValue()
 				//dats := Reswsdata(username, "cmd", margss)
 				rsadata := Protoxor(username, "cmd", margss)
-				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 加密结果：" + rsadata
+				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 加密结果：" + string(rsadata)
 			}
 
 			err := s.InteractionRespond(i.Interaction, &discordgo.InteractionResponse{

@@ -44,22 +44,22 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 		// 读取客户端发送的消息
 		_, msg, err := conn.ReadMessage()
 		if err != nil {
-			fmt.Printf("读取消息时出错:", err)
+			fmt.Printf("读取消息时出错:%s\n", err)
 			break
 		}
 
 		// 处理消息
-		fmt.Printf("Received message: %s\n", msg)
+		fmt.Printf("接收到客户端消息: %s\n", msg)
 	}
 }
 
-func SendMessage(message string) string {
+func SendMessage(message []byte) string {
 	// 检查是否已经存在连接
 	if conn == nil {
 		fmt.Printf("ws客户端未连接:")
 		return "ws客户端未连接"
 	}
-	err := conn.WriteJSON(message)
+	err := conn.WriteMessage(websocket.TextMessage, message)
 	if err != nil {
 		fmt.Printf("发送消息时出错:", err)
 		return "发送命令时出错"
