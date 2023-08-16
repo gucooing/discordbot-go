@@ -1,9 +1,6 @@
 package pgk
 
-import (
-	"fmt"
-)
-
+/*
 // Rsqdata 定义json结构体
 type Rsqdata struct {
 	Type  string `json:"Type"`
@@ -22,3 +19,4 @@ func Reswsdata(users, cause, types string) string {
 	stda := SendMessage(rsqdata)
 	return stda
 }
+*/

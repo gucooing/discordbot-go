@@ -53,9 +53,10 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func SendMessage(message interface{}) string {
+func SendMessage(message string) string {
 	// 检查是否已经存在连接
 	if conn == nil {
+		fmt.Printf("ws客户端未连接:")
 		return "ws客户端未连接"
 	}
 	err := conn.WriteJSON(message)
