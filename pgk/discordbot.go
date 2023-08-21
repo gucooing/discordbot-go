@@ -120,14 +120,14 @@ var (
 			msgformat := "操作成功:\n"
 
 			user := i.Interaction.Member.User
-			username := user.Username
+			username := user.ID
 
 			if option, ok := optionMap["绑定"]; ok {
 				margs = append(margs, username, option.StringValue())
 				//建议在此进行逻辑处理
-				margss := "whitelist add " + option.StringValue()
+				//margss := "whitelist add " + option.StringValue()
 				//dats := Reswsdata(username, "cmd", margss)
-				rsadata := Protoxor(username, "cmd", margss)
+				rsadata := Protoxor(username, "add", option.StringValue())
 				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 加密结果：" + string(rsadata)
 			}
 
@@ -156,14 +156,14 @@ var (
 			msgformat := "操作成功:\n"
 
 			user := i.Interaction.Member.User
-			username := user.Username
+			username := user.ID
 
 			if option, ok := optionMap["解绑"]; ok {
 				margs = append(margs, username, option.StringValue())
 				//建议在此进行逻辑处理
-				margss := "whitelist remove " + option.StringValue()
+				//margss := "whitelist remove " + option.StringValue()
 				//dats := Reswsdata(username, "cmd", margss)
-				rsadata := Protoxor(username, "cmd", margss)
+				rsadata := Protoxor(username, "remove", option.StringValue())
 				msgformat += "> 用户: %s\n> 游戏昵称: %s\n 加密结果：" + string(rsadata)
 			}
 
